@@ -5,37 +5,6 @@ galleryImages = new Array();
 n=0; s=0; 
 
 
-
-function loadImageFileAsURL()
-{
-
-    var filesSelected = document.getElementById("inputFileToLoad").files;
-    if (filesSelected.length > 0)
-    {
-        var fileToLoad = filesSelected[0];
-
-        if (fileToLoad.type.match("image.*"))
-        {
-          var fileReader = new FileReader(); length=length+1;
-            fileReader.onload = function(fileLoadedEvent) 
-            {
-                galleryImages[length-1] = document.createElement("img");
-                galleryImages[length-1].src = fileLoadedEvent.target.result;
-               containerdiv.appendChild(galleryImages[length-1]);
-               
-                            };
-            fileReader.readAsDataURL(fileToLoad);
-        }
-
-        if (!fileToLoad.type.match("image.*")) alert('Error! Not an Image File. Try again.');
-
-    }
-}
-   
-
-
-
-
 //filter files by extension from all files selected by the user
     function filterFiles(fileList) {
         var filteredFiles = [];
@@ -160,7 +129,7 @@ var step=0;
 function slideit(){
   //if browser does not support the image object, exit.
 n= galleryImages.length;
-alert(n);
+
  if (!document.images)
    return;
  
